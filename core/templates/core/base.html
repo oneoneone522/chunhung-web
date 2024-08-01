@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="/"><h1 class="logo">丞竑貿易有限公司</h1></a>
+        <div>
+            <a href="/" class="nav-item">首頁</a>
+        </div>
+        <div>
+            <a href="/" class="nav-item">關於我們</a>
+        </div>
+        <div>
+            <a href="{% url 'item:items' %}" class="nav-item">瀏覽商品</a>
+        </div>
+        <div>
+            <a href="#" class="nav-item">聯繫我們</a>
+        </div>
+        <div>
+            <a href="/" class="nav-item">檔案下載</a>
+        </div>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+    {% include 'core/footer.html' %}
+</body>
+</html>

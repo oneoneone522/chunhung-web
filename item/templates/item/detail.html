@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% block title %}
+{{ item.name }}
+{% endblock %}
+{% block content %}
+<div class="detail-container">
+    <div>
+        {% if item.image %}
+        <img src="{{ item.image.url }}" alt="">
+        {% else %}
+        <p>{{item.name}} pic shoud be uploaded</p>
+        {% endif %}
+    </div>
+    <div class="detail-desc">
+        <h1>{{ item.name }}</h1><br>
+        <p><strong>產品型號：</strong><br>{{ item.model_type }}</p><br>
+        {% if item.specification %}
+        <p><strong>產品規格：</strong><br>{{ item.specification }}</p><br>
+        {% endif %}
+        {% if item.description %}
+        <p>
+            <strong>產品描述：</strong><br>
+            {{ item.description }}
+        </p>
+        {% endif %}
+        <a href="mailto:jj0985788718@gmail.com?&subject={{item.name}}詢價單&body=公司名稱：_您的公司名稱_%0A聯絡人：_您的稱呼_%0A品項：_{{item.name}}_%0A數量：_需求數量_" class="contact-btn">
+            產品詢價
+        </a>        
+    </div>
+</div>
+<div class="related_items_page">
+    <h2 style="text-align:center">相關商品</h2>
+    <div class="box-row">
+        {% for item in related_items %}
+        <div class="box-column">
+            <a href="{% url 'item:detail' item.id %}">
+                <img src="{{ item.image.url }}" alt="">
+                <h3>{{ item.name }}</h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>    
+</div>
+{% endblock %}

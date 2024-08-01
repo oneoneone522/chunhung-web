@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Chocolate Classical Sans
+    ;
+}
+img {
+    background: transparent;
+}
+
+
+body {
+    background: #fff;
+    margin-top: 200px;
+}
+
+a {
+    text-decoration: none;
+    color:inherit;
+}
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #131921;
+    padding: 10px 20px;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.nav-bar li {
+    list-style-type: none;
+}
+
+.nav-bar .nav-item {
+    position: relative; /* 確保偽元素可以正確定位 */
+    color:#fff;
+    text-decoration: none; 
+    padding-bottom: 4px;
+    box-sizing: border-box; /* 確保 padding 不會影響元素的總大小 */
+}
+.nav-bar .nav-item:hover {
+    color: #4169E1; /* 懸停時文字顏色變為 Royal Blue */
+}
+
+.nav-bar .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0.7px;
+    color: #4169E1;
+    background-color: #4169E1; /* Royal Blue */
+    transition: width 0.5s ease; /* 動畫效果 */
+}
+
+.nav-bar .nav-item:hover::after {
+    color:#4169E1;
+    width: 100%;
+}
+
+.logo{
+    transition: .4s;
+}
+.logo:hover {
+    color:#4169E1;
+    scale: 1.2;
+}
+.header-slider ul{
+    display: flex;
+    overflow-y: hidden;
+}
+
+.header-slider a{
+    position: absolute;
+    top:20%;
+    z-index: 1;
+    padding: 5vw 1vw;
+    background: #ffffff4f;
+    color: #0000007b;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.control-next {
+    right: 0;
+}
+.header-image {
+    width: 100%;
+    mask-image: linear-gradient(to bottom, #000000 50%, transparent 100%);
+}
+
+footer {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    background: #131921;
+    padding: 20px 60px;
+    z-index: 2;
+}
+
+
+.element {
+    width: 200vw;
+    height: 35vw;
+    background-color: #000000;
+    color:#fff;
+}
+
+.box-row {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px; 
+    justify-content: space-between;
+    margin: 100px 30px 20px 30px;
+}
+
+.box-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    background: hsl(0, 0%, 78%);
+    width: 24%; 
+    min-width: 200px;
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+    border-radius: 10px;
+}
+.box-column img {
+    max-width: 20vw;
+    height: 15vw; 
+    border-radius: 5px;
+}
+
+
+.feature {
+    max-width: 33%;
+}
+
+.header-box {
+    margin-top: -20vw;
+}
+
+.detail-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #b5b5b5;
+}
+
+.detail-container img {
+    max-width: 20vw;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.detail-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-btn {
+    background: #4169E1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: 0.4s ease;
+    align-self: start;
+}
+.contact-btn:hover {
+    background: #3158b3;
+    scale: 1.2;
+}
+
+.related_items_page {
+    background: #b5b5b5;;
+}
+
+
+
+.box-row {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    justify-content: space-between;
+    margin: 100px 30px 20px 30px;
+}
+
+
+footer {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    background: #131921;
+    z-index: 2;
+}
+.search-bar {
+    position: fixed;
+    width: 100%;
+    background: #000000;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    top: 50px;
+    right: 0px;
+    gap: 20px;
+    z-index: 1;
+}
+
+
+
+.sidebar-hr ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid black;
+
+}
+
+
+
+
+.sidebar-hr {
+    position: absolute;
+    left: 10px;
+}
+
+.sidebar-hr ul {
+    display: flex;
+    gap: 40px;
+    list-style-type: none; /* 移除項目符號 */
+    padding: 0; /* 移除可能的默認填充 */
+    margin: 0; /* 移除可能的默認邊距 */
+}
+
+.sidebar-hr ul li {
+    margin: 0; /* 確保項目間沒有額外邊距 */
+    padding: 0; /* 確保項目內沒有額外填充 */
+}
+
+.sidebar-hr ul li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid black;
+    transition: color 0.4s ease, padding-left 0.4s ease; /* 添加過渡效果 */
+    text-decoration: none; /* 移除連結的下劃線 */
+    color: #fff; /* 確保文字顏色為白色，以與背景對比 */
+}
+
+.sidebar-hr ul li a:hover {
+    color: #4169E1; /* 懸停時變為皇家藍 */
+    padding-left: 10px; /* 懸停時添加左側填充 */
+}
+
+
+.search-form {
+    position: relative;
+    border:1px solid grey;
+    border-radius: 100px;
+}
+
+.search-form input {
+    padding: 10px 20px;
+    font: inherit;
+    border-radius: 100px;
+    border: 1px solid grey;
+    margin-right: 20px;
+}
+.search-form button {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: #0071FF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    transition: .2s;
+}
+
+.search-form button:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.clear-bar {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+    border: white;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.clear-bar:hover{
+    scale: 1.2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left:250px;
+    bottom: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #f8f9fa; /* 可根據需要調整背景色 */
+}
+
+.pagination .step-links {
+    display: flex;
+    gap: 10px; /* 調整分頁鏈接之間的間距 */
+}
+
+.pagination .step-links a {
+    text-decoration: none;
+    color: #007bff; /* 超鏈接顏色 */
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+}
+
+.pagination .step-links a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination .step-links strong {
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+
+/* 
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {float: left;}
+    .box-row {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+} */
