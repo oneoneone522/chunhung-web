@@ -17,7 +17,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['chunhung-web.onrender.com']
+ALLOWED_HOSTS = ['chunhung-web.onrender.com','127.0.0.1']
 
 
 
