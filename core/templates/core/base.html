@@ -14,9 +14,6 @@
             <a href="/" class="nav-item">首頁</a>
         </div>
         <div>
-            <a href="/" class="nav-item">關於我們</a>
-        </div>
-        <div>
             <a href="{% url 'item:items' %}" class="nav-item">瀏覽商品</a>
         </div>
         <div>
@@ -24,6 +21,9 @@
         </div>
         <div>
             <a href="/" class="nav-item">檔案下載</a>
+        </div>
+        <div>
+            <a href="{% url 'item:quotation_summary' %}" class="nav-item">報價單</a>
         </div>
     </nav>
     

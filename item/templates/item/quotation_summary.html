@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>您的詢價單</h2>
+{% if quotation_cart %}
+    <ul>
+        {% for item in quotation_cart %}
+        <li>{{ item.name }}: {{ item.specification }} - 數量: {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'submit_quotation' %}">提交詢價單</a>
+{% else %}
+    <p>您的詢價單是空的。</p>
+{% endif %}
+{% endblock %}

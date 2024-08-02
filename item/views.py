@@ -1,7 +1,50 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.db.models import Q
 from .models import Item, Category
+from item.forms import QuotationForm
+from django.core.mail import send_mail
+from django.conf import settings
+
+def add_item_to_quotation(request,pk):
+    item=get_object_or_404(Item,pk=pk)
+    if request.method=="POST":
+        form=QuotationForm(request.POST)
+        if form.is_valid():
+            quotation_cart=request.session.get('quotation_cart',[])
+            quotation_cart.append({
+                'item_id':item.id,
+                'specification': form.cleaned_data['specification'],
+                'quantity': form.cleaned_data['quantity'],
+                'name': item.name,
+            })
+            request.session['quotation_cart'] = quotation_cart
+            return redirect('quotation_summary')
+        else:
+            form=QuotationForm()
+        return render(request, 'item/add_to_quotation.html',{
+            'form':form,
+            'item':item,
+        })
+def quotation_summary(request):
+    quotation_cart = request.session.get('quotation_cart', [])
+    return render(request, 'item/quotation_summary.html', {'quotation_cart': quotation_cart})
+def submit_quotation(request):
+    quotation_cart = request.session.get('quotation_cart', [])
+    if quotation_cart:
+        # 在這裡處理詢價單，例如發送電子郵件
+        subject = '新的詢價請求'
+        message = ''
+        for item in quotation_cart:
+            message += f"品項: {item['name']}, 規格: {item['specification']}, 數量: {item['quantity']}\n"
+        
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, ['jj0985788718@gmail.com'])
+        
+        # 清空詢價單
+        request.session['quotation_cart'] = []
+        
+        return render(request, 'core/quotation_submitted.html')
+    return redirect('quotation_summary')
 
 def items(request):
     query=request.GET.get('query','')
