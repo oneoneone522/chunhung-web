@@ -26,8 +26,14 @@
         <!-- <a href="mailto:jj0985788718@gmail.com?&subject={{item.name}}詢價單&body=公司名稱：_您的公司名稱_%0A聯絡人：_您的稱呼_%0A品項：_{{item.name}}_%0A數量：_需求數量_" class="contact-btn">
             產品詢價
         </a>  -->
-        <a href="#" class="contact-btn">
-            產品詢價
+        <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+            {% csrf_token %}
+            <label for="specification">規格</label>
+            <textarea id="specification" name="specification" class="input-section" required></textarea>
+            <button type="submit" class="btn">加入詢價單</button>
+        </form>
+        <a href="#" class="btn">
+            直接詢價
         </a>        
     </div>
 </div>
