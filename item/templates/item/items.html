@@ -1,63 +1,67 @@
 {% extends 'core/base.html' %}
-{% block title %}
-瀏覽商品
-{{ item.name }}
+{% block title %}瀏覽商品{{ item.name }}
 {% endblock %}
 {% block content %}
-<nav class="search-bar">
-    <div class="sidebar-hr">
-        <ul>
-            {% for category in categories %}
-            <li>
-                <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}" class="ctgry-btn">{{category.name}}</a>
-            </li>
-            {% endfor %}
-        </ul>
+    <nav class="search-bar">
+        <div class="sidebar-hr">
+            <ul>
+                {% for category in categories %}
+                <li>
+                    <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}" class="ctgry-btn">{{category.name}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <form class="search-form" method="get" action="{% url 'item:items' %}">
+                <input type="text" name="query" placeholder="Search..">
+                <button class="search-btn">搜尋</button>
+            </form>
+        </div>
+        <div class="clear-bar">
+            <a href="{% url 'item:items' %}" class="clear-btn">清除搜尋</a>
+        </div>
+    </nav>
+    <div class="page-banner">
+        <div class="banner-container">
+            <h1>產品</h1>
+            <h2>丞竑貿易公司提供多樣化的產品，滿足您所有的生產與製造需求</h2>
+        </div>
     </div>
-    <div>
-        <form class="search-form" method="get" action="{% url 'item:items' %}">
-            <input type="text" name="query" placeholder="Search..">
-            <button class="search-btn">搜尋</button>
-        </form>
-    </div>
-    <div class="clear-bar">
-        <a href="{% url 'item:items' %}" class="clear-btn">清除搜尋</a>
-    </div>
-</nav>
-<div class="box-row">
-    {% for item in items %}
-    <div class="box-column">
-        <a href="{% url 'item:detail' item.id %}">
-            {% if item.image %}
-            <img src="{{ item.image.url }}" alt="{{ item.name }}">
-            {% else %}
-            <p>{{item.name}} pic shoud be uploaded</p>
-            {% endif %}
-            <h3>{{ item.name }}</h3>
-        </a>
-    </div>
-    {% endfor %}
-</div>
-
-<div class="pagination">
-    <span class="step-links">
-        {% if items.has_previous %}
-        <a href="?page=1{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">&laquo; first</a>
-        <a href="?page={{ items.previous_page_number }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">&lt;</a>
-        {% endif %}
-
-        {% for num in page_obj.paginator.page_range %}
-            {% if page_obj.number == num %}
-                <strong>{{num}}</strong>
-            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                <a class="" href="?page={{ num }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">{{ num }}</a>
-            {% endif %}
+    <div class="box-row">
+        {% for item in items %}
+        <div class="box-column">
+            <a href="{% url 'item:detail' item.id %}">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                {% else %}
+                <p>{{item.name}} pic shoud be uploaded</p>
+                {% endif %}
+                <h3>{{ item.name }}</h3>
+            </a>
+        </div>
         {% endfor %}
+    </div>
 
-        {% if items.has_next %}
-        <a href="?page={{ items.next_page_number }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">&gt;</a>
-        <a href="?page={{ items.paginator.num_pages }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if items.has_previous %}
+            <a href="?page=1{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">&laquo; first</a>
+            <a href="?page={{ items.previous_page_number }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">&lt;</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <strong>{{num}}</strong>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a class="" href="?page={{ num }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if items.has_next %}
+            <a href="?page={{ items.next_page_number }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">&gt;</a>
+            <a href="?page={{ items.paginator.num_pages }}{% if query %}&query={{ query }}{% endif %}{% if category_id %}&category={{ category_id }}{% endif %}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 {% endblock %}

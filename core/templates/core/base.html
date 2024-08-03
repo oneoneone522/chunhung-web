@@ -17,18 +17,27 @@
             <a href="{% url 'item:items' %}" class="nav-item">瀏覽商品</a>
         </div>
         <div>
-            <a href="#" class="nav-item">聯繫我們</a>
+            <a href="{% url 'core:contact' %}" class="nav-item">聯繫我們</a>
         </div>
         <div>
-            <a href="/" class="nav-item">檔案下載</a>
+            <a href="#" class="nav-item">檔案下載</a>
         </div>
         <div>
-            <a href="{% url 'item:quotation_summary' %}" class="nav-item">報價單</a>
+            <a href="{% url 'core:signup' %}" class="nav-item">註冊/登入</a>
         </div>
     </nav>
     
-    {% block content %}
-    {% endblock %}
-    {% include 'core/footer.html' %}
+{% block content %}
+{% endblock %}
+    <footer>
+        <div class="info-srction">
+            <p><strong>地址：</strong>高雄市大寮區光明路一段168-1號</p>
+            <p><strong>電話：</strong>07-7874443</p>
+            <p><strong>傳真：</strong>07-7874501</p>
+            <p><strong>電子郵件：</strong>chunhung7874443@gmail.com</p>
+        </div>
+        
+        <p>&copy;丞竑貿易有限公司</p>
+    </footer>
 </body>
 </html>

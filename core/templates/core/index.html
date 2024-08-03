@@ -7,17 +7,20 @@
     <!--創建Search Bar-->
 </div>
 <div class="header-slider">
-    <a href="#" class="control-prev">&#129144</a>
-    <a href="#" class="control-next">&#129146</a>
+    <!-- <a href="#" class="control-prev">&#129144</a>
+    <a href="#" class="control-next">&#129146</a> -->
     <ul>
         <img src="/static/assets/header2.jpg" class="header-image">
     </ul>
 </div>
 <section class="about">
-    <h1>關於我們</h1>
+    <div class="about-content">
+        <h1>關於我們</h1>
+        <p>丞竑貿易有限公司是金口凡而的南部經銷商，至今已營運十幾年。<br>我們提供多樣化的產品選擇，致力於協助您在生產與營運上的品質與效率提升。</p>
+    </div>
+    
     <div style="display: flex;">
         <div>
-            <p>丞竑貿易有限公司是金口凡而的南部經銷商，至今已營運十幾年。<br>我們提供多樣化的產品選擇，致力於協助您在生產與營運上的品質與效率提升。</p>
             <div class="">
                 <h2>堅持品質</h2>
                 <p>堅持提供品質保證的產品，讓我們的產品協助您的生產與建造。</p>
@@ -43,7 +46,11 @@
         {% for item in items %}
         <div class="box-column">
             <a href="{% url 'item:detail' item.id %}">
-                <img src="{{ item.image.url}}" alt="">
+                {% if item.image %}
+                    <img src="{{ item.image.url}}" alt="">
+                {% else %}
+                    <p>{{item.name}} pic shoud be uploaded</p>
+                {% endif %}
                 <h3>{{ item.name }}</h3>
             </a>
         </div>

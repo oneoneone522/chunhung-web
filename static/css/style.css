@@ -3,8 +3,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Chocolate Classical Sans
-    ;
+    font-family: Chocolate Classical Sans;
 }
 img {
     background: transparent;
@@ -13,7 +12,6 @@ img {
 
 body {
     background: #fff;
-    margin-top: 100px;
 }
 
 a {
@@ -29,7 +27,8 @@ a {
     color: #fff;
     height: 50px;
     width: 100%;
-    position: fixed;
+    position: -webkit-sticky; /* 為了兼容 Safari 瀏覽器 */
+    position: sticky;
     top: 0px;
     z-index: 2;
     box-sizing: border-box;
@@ -114,15 +113,22 @@ footer {
 
 
 .about-pic {
-    width: 200vw;
+    width: 100%;
     height: 35vw;
-    background-color: #000000;
+    background-color: #5858ed;
     color:#fff;
 }
 
 .about-pic img {
-    width: 70%;
+    width: 100%;
     height: 100%;
+}
+
+.about-content {
+    margin-bottom: 50px;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
 }
 
 .box-row {
@@ -194,6 +200,24 @@ footer {
     align-self: start;
 }
 .contact-btn:hover {
+    background: #3158b3;
+    scale: 1.2;
+}
+
+.btn {
+    background: #4169E1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: 0.4s ease;
+    align-self: start;
+}
+.btn:hover {
     background: #3158b3;
     scale: 1.2;
 }
@@ -335,9 +359,6 @@ footer {
 .pagination {
     display: flex;
     justify-content: center;
-    position: fixed;
-    left:250px;
-    bottom: 0px;
     margin-bottom: 10px;
     width: 100%;
     padding: 10px 0;
@@ -369,9 +390,40 @@ footer {
     background-color: #007bff;
     color: #fff;
 }
+.page-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vw;
+    text-align: center;
+}
+.banner-container {
+    /* 讓內部內容居中對齊 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact-session {
+    display: flex;
+    justify-content: space-between; /* 將子元素左右對齊 */
+    align-items: flex-start; /* 子元素頂部對齊 */
+    padding: 20px;
+}
+
+.contact-info {
+    flex: 1; /* 讓 .contact-info 佔據剩餘的空間 */
+    margin-right: 20px; /* 設置右邊距以分隔兩個元素 */
+}
+
+.map {
+    flex: 2; /* 讓 .map 佔據更多空間 */
+}
 
 
-
+.signup-page {
+    padding: 100px;
+}
 /* 
 @media screen and (max-width: 700px) {
     .sidebar {
