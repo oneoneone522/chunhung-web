@@ -1,4 +1,4 @@
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import CartItem
@@ -33,7 +33,7 @@ def submit_quotation(request):
         form = quotationForm(request.POST)
         if form.is_valid():
             specification = form.cleaned_data['specification']
-            cart_items = CartItem.objects.filter(user=request.user)
+            cart_items = CartItem.objects.all()
             cart_items.delete()
             return redirect('cart:view_cart')
         else:

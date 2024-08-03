@@ -8,9 +8,8 @@
             <div class="product-item">
                 <p>{{ item.item.name }} ({{ item.quantity }})</p>
                 <p>規格：{{ item.specification }}</p>
-                <!-- 添加字段，以便用户可以编辑规格
-                <form action="{% url 'cart:update_specification' item.id %}" method="post"> -->
-                    <!-- {% csrf_token %}
+                <!--<form action="{% url 'cart:update_specification' item.id %}" method="post"> 
+                    {% csrf_token %}
                     <label for="specification_{{ item.id }}">更新规格:</label>
                     <textarea id="specification_{{ item.id }}" name="specification" class="input-section" required>{{ item.specification }}</textarea>
                     <input type="submit" value="更新规格">

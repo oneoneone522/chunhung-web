@@ -24,7 +24,7 @@
         </div>
         <div>
             {% if request.user.is_authenticated %}
-                <a href="#" class="nav-item">詢價單</a>
+                <a href="{% url 'cart:view_cart' %}" class="nav-item">詢價單</a>
             {% else %}
                 <a href="{% url 'core:signup' %}" class="nav-item">註冊/登入</a>
             {% endif %}
