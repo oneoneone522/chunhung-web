@@ -79,10 +79,6 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
-# DATABASES = {
-#     "default":dj_database_url.parse("postgresql://chunhungdb_user:9VJbIXMLHogaQhnbHBSBQ5Ho8qLc1ZaG@dpg-cqloj3bv2p9s73b9cagg-a.singapore-postgres.render.com/chunhungdb"),
-# }
 DATABASES = {
     "default":dj_database_url.parse(os.environ.get('DATABASE_URL')),
 }

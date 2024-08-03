@@ -6,15 +6,9 @@
     <div class="product-list">
         {% for item in cart_items %}
             <div class="product-item">
-                <p>{{ item.item.name }} ({{ item.quantity }})</p>
+                <p>{{ item.item_name }} ({{ item.quantity }})</p>
                 <p>規格：{{ item.specification }}</p>
-                <!--<form action="{% url 'cart:update_specification' item.id %}" method="post"> 
-                    {% csrf_token %}
-                    <label for="specification_{{ item.id }}">更新规格:</label>
-                    <textarea id="specification_{{ item.id }}" name="specification" class="input-section" required>{{ item.specification }}</textarea>
-                    <input type="submit" value="更新规格">
-                </form> -->
-                <a href="{% url 'cart:remove_from_cart' item.id %}">移除品项</a>
+                <a href="{% url 'cart:remove_from_cart' item.item_id %}">移除品項</a>
             </div>
         {% empty %}
             <p>您的詢價單是空的</p>
@@ -23,9 +17,11 @@
 
     <form action="{% url 'cart:submit_quotation' %}" method="post">
         {% csrf_token %}
-        <label for="email">電子郵件:</label>
+        <label for="username">公司名稱</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="email">電子郵件:</label><br>
         <input type="email" id="email" name="email" required><br>
-        <input type="submit" value="送出詢價單">
+        <button type="submit" class="btn">送出詢價單</button>
     </form>
     
     <a href="{% url 'item:items' %}">查看其他商品</a>
