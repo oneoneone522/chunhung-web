@@ -1,18 +1,8 @@
 {% extends 'core/base.html' %}
 {% block title %}詢價單{% endblock %}
 {% block content %}
-    <!-- <div class="page-banner">
-        <div class="banner-container">
-            <h1>您的詢價單</h1>
-            {% if cart_items %}
-                <h2>丞竑貿易公司提供多樣化的產品，滿足您所有的生產與製造需求</h2>
-            {% else %}
-                <h2>您的詢價單是空的</h2>
-            {% endif %}
-        </div>
-    </div> -->
     <header><h1>我的詢價單</h1></header>
-    <hr>
+    <hr style="padding-bottom: 50px; width: 70%; align-items: center;">
     <div class="product-list">
         {% for item in cart_items %}
             <div class="product-item">

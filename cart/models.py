@@ -5,7 +5,7 @@ from item.models import Item
 class QuotationInfo(models.Model):
     email = models.EmailField(max_length=100)
     username = models.CharField(max_length=100, default="Anonymous")
-    tax_code=models.CharField(max_length=50)
+    phonenum=models.CharField(max_length=20, default="07-7874443")
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:

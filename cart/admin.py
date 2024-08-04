@@ -7,5 +7,5 @@ class QuotationItemInline(admin.TabularInline):
 
 @admin.register(QuotationInfo)
 class QuotationInfoAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'tax_code', 'date_added')
+    list_display = ('username', 'email', 'phonenum', 'date_added')
     inlines = [QuotationItemInline]  # 將內聯添加到 QuotationInfo admin

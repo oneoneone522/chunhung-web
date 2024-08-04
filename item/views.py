@@ -2,6 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404,redirect
 from django.db.models import Q
 from .models import Item, Category
+from cart.forms import quotationForm
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -48,7 +49,17 @@ def detail(request, pk):
         related_items = Item.objects.filter(name__icontains='防震接頭')
     else:
         related_items = Item.objects.filter(category=item.category).exclude(pk=pk)[:3]
+    if request.method == "POST":
+        form=quotationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            redirect('/<int:pk>/')
+        else:
+            form=quotationForm()
+    form=quotationForm()
     return render(request, 'item/detail.html',{
         'item':item,
         'related_items':related_items,
+        'form':form,
     })

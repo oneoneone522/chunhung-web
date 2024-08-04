@@ -6,9 +6,20 @@ from item.models import Item
 from .forms import quotationForm
 
 def view_cart(request):
+    if request.method == "POST":
+        form=QuotationInfo(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('/cart/')
+        else:
+            form=QuotationInfo()
+    form=QuotationInfo()            
+        
     cart_items=request.session.get('cart_items',[])
     return render(request, 'cart/cart.html', {
         'cart_items':cart_items,
+        'form':form
     })
 
 def add_to_cart(request, item_id):

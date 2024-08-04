@@ -26,11 +26,12 @@
         <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
             {% csrf_token %}
             <label for="specification">規格</label>
-            <input type="text" id="specification" name="specification" class="input-section" required>
+            {{form.specification}}
             <label for="quatity">數量</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="100">
+            {{form.quantity}}
             <button type="submit" class="btn">加入詢價單</button>
         </form>
+        <p>傳送電子郵件，直接向我們詢價</p>
         <a href="mailto:jj0985788718@gmail.com?&subject={{item.name}}詢價單&body=公司名稱：_您的公司名稱_%0A聯絡人：_您的稱呼_%0A品項：_{{item.name}}_%0A數量：_需求數量_" class="contact-btn">
             產品詢價
         </a> 
