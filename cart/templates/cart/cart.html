@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% block title %}詢價單{% endblock %}
 {% block content %}
-    <div class="page-banner">
+    <!-- <div class="page-banner">
         <div class="banner-container">
             <h1>您的詢價單</h1>
             {% if cart_items %}
@@ -10,20 +10,23 @@
                 <h2>您的詢價單是空的</h2>
             {% endif %}
         </div>
-    </div>
-
+    </div> -->
+    <header><h1>我的詢價單</h1></header>
+    <hr>
     <div class="product-list">
         {% for item in cart_items %}
             <div class="product-item">
-                <p>{{ item.item_name }} ({{ item.quantity }})</p>
+                <p><strong>{{ item.item_name }}</strong></p>
+                <p>需求數量：{{ item.quantity }}</p>
                 <p>規格：{{ item.specification }}</p>
-                <a href="{% url 'cart:remove_from_cart' item.item_id %}">移除品項</a>
+                <a href="{% url 'cart:remove_from_cart' item.item_id %}" class="remove-btn">移除品項</a>
             </div>
         {% empty %}
         {% endfor %}
     </div>
     {% if cart_items %}
-        <form action="{% url 'cart:submit_quotation' %}" method="post">
+        <p><strong>請填寫聯繫資料，我們會透過電子郵件回傳報價單。</strong></p>
+        <form class="client-info" action="{% url 'cart:submit_quotation' %}" method="post">
             {% csrf_token %}
             <label for="username">公司名稱：</label><br>
             <input type="text" id="username" name="username" required><br>

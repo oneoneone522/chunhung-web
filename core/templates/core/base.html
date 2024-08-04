@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
+    <title>丞竑貿易｜{% block title %}{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -23,11 +23,7 @@
             <a href="#" class="nav-item">檔案下載</a>
         </div>
         <div>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'cart:view_cart' %}" class="nav-item">詢價單</a>
-            {% else %}
-                <a href="{% url 'core:signup' %}" class="nav-item">註冊/登入</a>
-            {% endif %}
+            <a href="{% url 'cart:view_cart' %}" class="nav-item">詢價單</a>
         </div>
     </nav>
     

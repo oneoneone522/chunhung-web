@@ -449,7 +449,24 @@ footer {
     color: #007bff;
     scale: 1.2;
 }
- 
+
+.product-item {
+    border-radius: 5px;
+    border: #000000 solid;
+    width: 25%;
+    padding: 10px;
+    line-height: 2;
+}
+.remove-btn {
+    background-color: rgb(163, 55, 55);
+    border-radius: 3px;
+    padding: 2px;
+    color: #fff;
+}
+
+.client-info {
+    line-height: 2;
+}
 /* Add media queries for different screen sizes */
 @media (max-width: 768px) {
     .nav-bar {
