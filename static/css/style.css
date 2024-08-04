@@ -9,6 +9,8 @@ img {
     background: transparent;
 }
 
+html {scroll-behavior: smooth;}
+
 
 body {
     background: #fff;
@@ -43,10 +45,10 @@ a {
     color:#fff;
     text-decoration: none; 
     padding-bottom: 4px;
-    box-sizing: border-box; /* 確保 padding 不會影響元素的總大小 */
+    box-sizing: border-box; 
 }
 .nav-bar .nav-item:hover {
-    color: #4169E1; /* 懸停時文字顏色變為 Royal Blue */
+    color: #4169E1; 
 }
 
 .nav-bar .nav-item::after {
@@ -108,8 +110,18 @@ footer {
     color: #fff;
     background: #131921;
     padding: 20px 60px;
-    z-index: 2;
+    position: relative;
+    bottom: 0;
 }
+
+header {
+    margin-bottom: 50px;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+
 .about-content {
     display: flex;
     height: 300px;
@@ -128,12 +140,6 @@ footer {
     height: 100%;
 }
 
-.about-header {
-    margin-bottom: 50px;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-}
 
 .feature-boxs-row {
     gap: 10px;

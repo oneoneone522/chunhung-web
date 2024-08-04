@@ -13,11 +13,12 @@
         <img src="/static/assets/header2.jpg" class="header-image">
     </ul>
 </div>
-<section class="about">
-    <div class="about-header">
+<section class="about-page">
+    <header>
         <h1>關於我們</h1>
-        <p>丞竑貿易有限公司是金口凡而的南部經銷商，至今已營運十幾年。<br>我們提供多樣化的產品選擇，致力於協助您在生產與營運上的品質與效率提升。</p>
-    </div>
+        <p style="text-align: center;">丞竑貿易有限公司是金口凡而的南部經銷商，至今已營運十幾年。<br>我們提供多樣化的產品選擇，致力於協助您在生產與營運上的品質與效率提升。</p>
+    </header>
+    
     
     <div class="about-content">
         <div class="feature-boxs-row">
@@ -39,9 +40,12 @@
             <img src="/static/assets/header1.jpg">
         </div>
     </div>
-    
 </section>
-    <h1 style="text-align: center;">瀏覽商品</h1>
+
+<section class="browse-page">
+    <header>
+        <h1>瀏覽商品</h1>
+    </header>
     <div class="box-row">
         {% for item in items %}
         <div class="box-column">
@@ -56,21 +60,26 @@
         </div>
         {% endfor %}
     </div>
-<div>
-    <h1 style="text-align: center;">商品類別</h1>
-</div>
-<div class="box-row">
-    {% for category in categories %}
-    <div class="box-column">
-        <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}">
-            {% if category.image %}
-            <img src="{{category.image.url}}">
-            {% else %}
-            <img src="/static/assets/item_image_2.jpg" alt="">
-            {% endif %}
-            <h3>{{ category.name }}</h3>
-        </a>
+</section>
+    
+<section class="category-page">
+    <header>
+        <h1>商品類別</h1>
+    </header>
+    <div class="box-row">
+        {% for category in categories %}
+        <div class="box-column">
+            <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}">
+                {% if category.image %}
+                <img src="{{category.image.url}}">
+                {% else %}
+                <img src="/static/assets/item_image_2.jpg" alt="">
+                {% endif %}
+                <h3>{{ category.name }}</h3>
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
-{% endblock %}
+    {% endblock %}
+</section>
+
