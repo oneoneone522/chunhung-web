@@ -14,15 +14,18 @@
             <p>您的詢價單是空的</p>
         {% endfor %}
     </div>
-
-    <form action="{% url 'cart:submit_quotation' %}" method="post">
-        {% csrf_token %}
-        <label for="username">公司名稱</label><br>
-        <input type="text" id="username" name="username" required><br>
-        <label for="email">電子郵件:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <button type="submit" class="btn">送出詢價單</button>
-    </form>
+    {% if cart_items %}
+        <form action="{% url 'cart:submit_quotation' %}" method="post">
+            {% csrf_token %}
+            <label for="username">公司名稱：</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="email">電子郵件:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="phonenum">連絡電話:</label><br>
+            <input type="text" id="phonenum" name="phonenum" required><br>
+            <button type="submit" class="btn">送出詢價單</button>
+        </form>
+    {% endif %}
     
     <a href="{% url 'item:items' %}">查看其他商品</a>
 
