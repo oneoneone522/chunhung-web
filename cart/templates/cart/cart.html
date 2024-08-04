@@ -12,6 +12,7 @@
                 <a href="{% url 'cart:remove_from_cart' item.item_id %}" class="remove-btn">移除品項</a>
             </div>
         {% empty %}
+        <p>你的詢價單中沒有品項</p>
         {% endfor %}
     </div>
     {% if cart_items %}

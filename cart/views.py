@@ -37,10 +37,10 @@ def add_to_cart(request, item_id):
     })
     request.session['cart_items'] = cart_items
 
-    return redirect('cart:view_cart')
+    return redirect('item:detail', pk=item_id)
 
 def remove_from_cart(request, item_id):
-    cart_item = request.session.get('cart_item',[])
+    cart_items = request.session.get('cart_item',[])
     cart_items = [item for item in cart_items if item['item_id'] != item_id]
     request.session['cart_items'] = cart_items
     
