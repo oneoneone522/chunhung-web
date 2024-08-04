@@ -14,7 +14,7 @@
         </div>
         <div>
             <form class="search-form" method="get" action="{% url 'item:items' %}">
-                <input type="text" name="query" placeholder="Search..">
+                <input type="text" name="query" value="{{ query }}" placeholder="Search..">
                 <button class="search-btn">搜尋</button>
             </form>
         </div>

@@ -10,10 +10,16 @@ def items(request):
     category_id=request.GET.get('category', 0)
     categories=Category.objects.all()
     items=Item.objects.all()
+    
+    if category_id:
+        category_id=int(category_id)
+        items=items.filter(category_id=category_id)
+    if query:
+        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
     paginate_by = 16
     paginator = Paginator(items, paginate_by)
     page = request.GET.get('page')
-
+    
     try:
         items_paginated = paginator.page(page)
     except PageNotAnInteger:
@@ -31,10 +37,7 @@ def items(request):
         'page_obj':items_paginated,
     }
     
-    if category_id:
-        items=items.filter(category_id=category_id)
-    if query:
-        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
+    
 
     return render(request,'item/items.html', context)
 
