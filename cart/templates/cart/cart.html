@@ -1,7 +1,16 @@
 {% extends 'core/base.html' %}
 {% block title %}詢價單{% endblock %}
 {% block content %}
-    <h1>您的詢價單</h1>
+    <div class="page-banner">
+        <div class="banner-container">
+            <h1>您的詢價單</h1>
+            {% if cart_items %}
+                <h2>丞竑貿易公司提供多樣化的產品，滿足您所有的生產與製造需求</h2>
+            {% else %}
+                <h2>您的詢價單是空的</h2>
+            {% endif %}
+        </div>
+    </div>
 
     <div class="product-list">
         {% for item in cart_items %}
@@ -11,7 +20,6 @@
                 <a href="{% url 'cart:remove_from_cart' item.item_id %}">移除品項</a>
             </div>
         {% empty %}
-            <p>您的詢價單是空的</p>
         {% endfor %}
     </div>
     {% if cart_items %}
@@ -27,6 +35,6 @@
         </form>
     {% endif %}
     
-    <a href="{% url 'item:items' %}">查看其他商品</a>
+    <a href="{% url 'item:items' %}" class="find-other-link">查看其他商品</a>
 
 {% endblock %}
