@@ -38,6 +38,11 @@
                 <p>{{item.name}} pic shoud be uploaded</p>
                 {% endif %}
                 <h3>{{ item.name }}</h3>
+                {% if item.model_type %}
+                <p>型號：{{item.model_type}}</p>
+                {% else %}
+                <p>無型號提供</p>
+                {% endif %}
             </a>
         </div>
         {% endfor %}
