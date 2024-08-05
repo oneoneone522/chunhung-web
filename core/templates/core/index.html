@@ -46,9 +46,9 @@
     <header>
         <h1>瀏覽商品</h1>
     </header>
-    <div class="box-row">
+    <div class="product-slider">
         {% for item in items %}
-        <div class="box-column">
+        <div class="product">
             <a href="{% url 'item:detail' item.id %}">
                 {% if item.image %}
                     <img src="{{ item.image.url}}" alt="">
@@ -56,6 +56,11 @@
                     <p>{{item.name}} pic shoud be uploaded</p>
                 {% endif %}
                 <h3>{{ item.name }}</h3>
+                {% if item.model_type %}
+                    <p>型號：{{item.model_type}}</p>
+                {% else %}
+                    <p>無型號提供</p>
+                {% endif %}
             </a>
         </div>
         {% endfor %}

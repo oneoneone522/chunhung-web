@@ -14,6 +14,9 @@ def index(request):
 def contact(request):
     return render(request, 'core/contact.html')
 
+def filedownload(request):
+    return render(request, 'core/file.html')
+
 def signup(request):
     if request.method == "POST":
         form=SignupForm(request.POST)

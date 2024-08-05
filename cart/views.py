@@ -3,7 +3,6 @@ from django.conf import settings
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import QuotationInfo,QuotationItem
 from item.models import Item
-from .forms import quotationForm
 
 def view_cart(request):
     if request.method == "POST":
@@ -40,7 +39,7 @@ def add_to_cart(request, item_id):
     return redirect('item:detail', pk=item_id)
 
 def remove_from_cart(request, item_id):
-    cart_items = request.session.get('cart_item',[])
+    cart_items = request.session.get('cart_items',[])
     cart_items = [item for item in cart_items if item['item_id'] != item_id]
     request.session['cart_items'] = cart_items
     
