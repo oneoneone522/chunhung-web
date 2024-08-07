@@ -4,7 +4,7 @@ from .models import QuotationItem, QuotationInfo
 class quotationForm(forms.ModelForm):
     class Meta:
         model = QuotationItem
-        fields = ('specification','quantity',)
+        fields = ('specification','quantity','remark')
         widgets = {
             'specification':forms.TextInput(attrs={
                 'class':'input-section',
@@ -13,6 +13,10 @@ class quotationForm(forms.ModelForm):
             'quantity':forms.NumberInput(attrs={
                 'class':'input-section',
                 'placeholder':'請輸入產品數量',
+            }),
+            'remark':forms.TextInput(attrs={
+                'class':'input-section',
+                'placeholder':'如有需求，請輸入對產品的備註'
             })
         }
 class clientInfo(forms.ModelForm):
