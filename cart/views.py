@@ -7,14 +7,12 @@ from cart.forms import clientInfo
 
 def view_cart(request):
     if request.method == "POST":
-        form=QuotationInfo(request.POST)
+        form=clientInfo(request.POST)
         if form.is_valid():
             form.save()
-
             return redirect('/cart/')
-        else:
-            form=QuotationInfo()
-    form=QuotationInfo()            
+
+    form=clientInfo()            
         
     cart_items=request.session.get('cart_items',[])
     return render(request, 'cart/cart.html', {

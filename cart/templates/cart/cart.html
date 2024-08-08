@@ -19,13 +19,13 @@
         <form method="POST" class="client-info" action="{% url 'cart:submit_quotation' %}">
             {% csrf_token %}
             <label for="username">公司名稱：</label><br>
-            {{ form.username}}
+            {{ form.username}}<br>
             <label for="email">電子郵件:</label><br>
-            {{ form.email}}
+            {{ form.email}}<br>
             <label for="phonenum">連絡電話:</label><br>
-            {{ form.phonenum}}
+            {{ form.phonenum}}<br>
             <label for="captcha">驗證碼</label><br>
-            {{ form.captcha }}
+            {{ form.captcha }}<br>
             <button type="submit" class="btn">送出詢價單</button>
         </form>
     {% endif %}
