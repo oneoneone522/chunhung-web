@@ -24,6 +24,8 @@
             <input type="email" id="email" name="email" required><br>
             <label for="phonenum">連絡電話:</label><br>
             <input type="text" id="phonenum" name="phonenum" required><br>
+            <label for="captcha">驗證碼</label>
+            {{ form.captcha }}
             <button type="submit" class="btn">送出詢價單</button>
         </form>
     {% endif %}

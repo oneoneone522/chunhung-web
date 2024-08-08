@@ -1,7 +1,9 @@
 from django import forms
 from .models import QuotationItem, QuotationInfo
+from captcha.fields import CaptchaField
 
 class quotationForm(forms.ModelForm):
+    captch = CaptchaField()
     class Meta:
         model = QuotationItem
         fields = ('specification','quantity','remark')
@@ -22,10 +24,10 @@ class quotationForm(forms.ModelForm):
 class clientInfo(forms.ModelForm):
     class Meta:
         model=QuotationInfo
-        fields=('username', 'email', 'phonenum',)
+        fields=('username', 'email', 'phonenum','captcha')
         widgets = {
             'username':forms.TextInput(attrs={
-                'placeholder':'輸入您的公司名稱',
+                'placeholder':'輸入您的公司或聯絡人名稱',
             }),
             'email':forms.EmailInput(attrs={
                 'placeholder':'example@emil.com'

@@ -152,7 +152,7 @@ header a:hover {
 .feature-box-rows {
     display: flex;
     flex-direction: row;  /* 確保水平排列 */
-    justify-content: space-between;  /* 在水平方向上分佈均勻 */
+    justify-content: center;  /* 在水平方向上分佈均勻 */
     row-gap: 10px;
     position: relative;
     left: 20px;
