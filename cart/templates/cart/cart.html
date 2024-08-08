@@ -16,15 +16,15 @@
     </div>
     {% if cart_items %}
         <p><strong>請填寫聯繫資料，我們會透過電子郵件回傳報價單。</strong></p>
-        <form class="client-info" action="{% url 'cart:submit_quotation' %}" method="post">
+        <form method="POST" class="client-info" action="{% url 'cart:submit_quotation' %}">
             {% csrf_token %}
             <label for="username">公司名稱：</label><br>
-            <input type="text" id="username" name="username" required><br>
+            {{ form.username}}
             <label for="email">電子郵件:</label><br>
-            <input type="email" id="email" name="email" required><br>
+            {{ form.email}}
             <label for="phonenum">連絡電話:</label><br>
-            <input type="text" id="phonenum" name="phonenum" required><br>
-            <label for="captcha">驗證碼</label>
+            {{ form.phonenum}}
+            <label for="captcha">驗證碼</label><br>
             {{ form.captcha }}
             <button type="submit" class="btn">送出詢價單</button>
         </form>

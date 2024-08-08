@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import QuotationInfo,QuotationItem
 from item.models import Item
+from cart.forms import clientInfo
 
 def view_cart(request):
     if request.method == "POST":
@@ -47,23 +48,26 @@ def remove_from_cart(request, item_id):
 
 def submit_quotation(request):
     if request.method == "POST":
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        cart_items = request.session.get('cart_items', [])
+        form = clientInfo(request.POST)
 
-        if cart_items:
-            # 創建 QuotationInfo 物件
-            quotation = QuotationInfo.objects.create(username=username, email=email)
+        if form.is_valid():
+            quotation = form.save()
 
-            for item in cart_items:
-                item_obj = get_object_or_404(Item, id=item['item_id'])
-                QuotationItem.objects.create(
-                    quotation=quotation,
-                    item=item_obj,
-                    specification=item['specification'],
-                    quantity=item['quantity']
-                )
-            request.session['cart_items'] = []
+            cart_items = request.session.get('cart_items',[])
+            if cart_items:
+                for item in cart_items:
+                    item_obj = get_object_or_404(Item, id=item['item_id'])
+                    QuotationItem.objects.create(
+                        quotation=quotation,
+                        item=item_obj,
+                        specification=item['specification'],
+                        quantity=item['quantity'],
+                        remark=item.get('remark',''),
+                    )
+                request.session['cart_items'] = []
 
             return redirect('cart:view_cart')
-        return redirect('cart:view_cart')
+        else:
+            return render(request, 'cart.html', {'form':form})
+        
+    return redirect('cart:view_cart')

@@ -1,11 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
 from item.models import Item
 
 class QuotationInfo(models.Model):
     email = models.EmailField(max_length=100)
-    username = models.CharField(max_length=100, default="Anonymous")
-    phonenum=models.CharField(max_length=20, default="07-7874443")
+    username = models.CharField(max_length=100)
+    phonenum=models.CharField(max_length=20)
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
