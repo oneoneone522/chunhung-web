@@ -43,3 +43,21 @@ class clientInfo(forms.ModelForm):
                 'placeholder':'輸入驗證碼'
             }),
         }
+        error_messages = {
+            'username': {
+                'required': '公司名稱為必填項。',
+                'max_length': '公司名稱不能超過 100 個字符。',
+            },
+            'email': {
+                'required': '電子郵件為必填項。',
+                'invalid': '請輸入有效的電子郵件地址。',
+            },
+            'phonenum': {
+                'required': '電話號碼為必填項。',
+                'max_length': '電話號碼不能超過 20 個字符。',
+            },
+            'captcha': {
+                'required': '驗證碼為必填項。',
+                'invalid': '驗證碼無效。',
+            },
+        }
