@@ -9,22 +9,16 @@
 </head>
 <body>
     <nav class="nav-bar">
-        <a href="/"><h1 class="logo">丞竑貿易有限公司</h1></a>
-        <div>
-            <a href="/" class="nav-item">首頁</a>
-        </div>
-        <div>
-            <a href="{% url 'item:items' %}" class="nav-item">瀏覽商品</a>
-        </div>
-        <div>
-            <a href="{% url 'core:contact' %}" class="nav-item">聯繫我們</a>
-        </div>
-        <div>
-            <a href="{% url 'core:filedownload' %}" class="nav-item">檔案下載</a>
-        </div>
-        <div>
-            <a href="{% url 'cart:view_cart' %}" class="nav-item">詢價單</a>
-        </div>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">&#9776;</label>
+        <label class="logo">丞竑貿易有限公司</label>
+        <ul>
+            <li><a href="/" class="nav-item">首頁</a></li>
+            <li><a href="{% url 'item:items' %}" class="nav-item">瀏覽商品</a></li>
+            <li><a href="{% url 'core:contact' %}" class="nav-item">聯繫我們</a></li>
+            <li><a href="{% url 'core:filedownload' %}" class="nav-item">檔案下載</a></li>
+            <li><a href="{% url 'cart:view_cart' %}" class="nav-item">詢價單</a></li>
+        </ul>
     </nav>
     
 {% block content %}
