@@ -3,6 +3,7 @@
 {% endblock %}
 {% block content %}
     <nav class="search-bar">
+        <label for="search" class="search-Btn">搜尋商品</label>
         <div class="sidebar-hr">
             <ul>
                 {% for category in categories %}
@@ -12,12 +13,10 @@
                 {% endfor %}
             </ul>
         </div>
-        <div>
-            <form class="search-form" method="get" action="{% url 'item:items' %}">
-                <input type="text" name="query" value="{{ query }}" placeholder="Search..">
-                <button class="search-btn">搜尋</button>
-            </form>
-        </div>
+        <form class="search-form" method="get" action="{% url 'item:items' %}">
+            <input type="text" name="query" value="{{ query }}" placeholder="Search..">
+            <button class="search-btn">搜尋</button>
+        </form>
         <div class="clear-bar">
             <a href="{% url 'item:items' %}" class="clear-btn">清除搜尋</a>
         </div>
