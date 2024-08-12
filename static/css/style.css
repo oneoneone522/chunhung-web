@@ -16,171 +16,32 @@ a {
     text-decoration: none;
     color:inherit;
 }
-nav {
-    background-color: #222222;
-    padding: 10px 40px 10px 70px;
-    border: 1px solid #000;
-    border-left: none;
-    border-right: none;
-}
-
-/* /* @media screen and (max-width:1052px){
-    nav{
-        padding: 10px 40px 10px 0px;
-    }
-    .navbar ul li.logo{
-        display: none;
-    }
-    .navbar ul div.items{
-        flex: 4;
-    }
-    .box-row {
-        flex-direction: column;
-        align-items: center;
-        margin: 20px 10px;
-    }
-    .box-column {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-    .page-banner {
-        height: auto;
-        padding: 20px 10px;
-    }
-    .banner-container h1, .banner-container h2 {
-        font-size: 1.5em;
-        text-align: center;
-    }
-    .search-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-    }
-    .search-form {
-        width: 40%;
-    }
-    .search-form input {
-        width: calc(100% - 50px);
-    }
-    .search-form button {
-        position: static;
-        width: 50px;
-        height: 50px;
-        margin-left: 10px;
-    }
-    .pagination {
-        flex-direction: column;
-        align-items: center;
-    }
-    .footer {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-    .footer .info-section {
-        text-align: center;
-    }
-}
-@media screen and (max-width:800px){
-    .navbar ul li.menu-btn{
-        display: block;
-    }
-    .navbar {
-        z-index: 1;
-        padding: 9px 40px 9px 0;
-    }
-    .navbar ul div.items{
-        z-index: -1;
-        position: fixed;
-        top: -220px;
-        color: #f2f2f2;
-        background:#222222;
-        width: 100%;
-        right: 0;
-        display: inline-block;
-        transition: top .4s;
-    }
-    .navbar ul div.items.show{
-        top: 60px;
-    }
-    .navbar ul div.items li{
-        text-align: center;
-        line-height: 10px;
-        margin: 30px 0;
-    }
-    .navbar ul div.items li a{
-        font-size: 19px;
-    }
-} */
-.header-slider a{
-    position: absolute;
-    top:20%;
+.navbar {
+    position: fixed;
     z-index: 1;
-    padding: 5vw 1vw;
-    background: #ffffff4f;
-    color: #0000007b;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.control-next {
-    right: 0;
-}
-.header-image {
     width: 100%;
-    mask-image: linear-gradient(to bottom, #000000 50%, transparent 100%);
+    top: 0;
+}
+.navbar-nav .nav-link {
+    transition: transform 0.3s ease, color 0.3s ease; /* 添加平滑過渡效果 */
 }
 
-footer {
-    display: flex;
-    height: 100px;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    background: #131921;
-    padding: 20px 60px;
-    position: relative;
-    z-index: 1;
-    bottom: 0;
+.navbar-nav .nav-link:hover {
+    transform: scale(1.1); /* 當游標懸停時放大 */
+    color: #FFD700; /* 可以設置一個新顏色，比如金色 */
+}
+.navbar-nav .nav-link.active {
+    color: #FFD700; /* 改變 active 連結的顏色 */
 }
 
-header {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
+@media screen {
+    .navbar-nav .nav-link {
+        transition: transform 0.3s ease; /* 添加平滑過渡效果 */
+    }
+    .navbar-nav .nav-link:hover {
+        padding-left: 20px;
+    }
 }
-header a {
-    transition: 0.4s ease;
-}
-header a:hover {
-    color: #007bff;
-    scale: 1.2;
-}
-
-
-.about-content {
-    display: flex;
-    height: 400px;
-    position: relative;
-}
-
-.about-pic {
-    width: 400px;
-    height: 200px;
-    position: absolute;
-    left: 50px;
-}
-
-.about-pic img {
-    width: 100%;
-    height: 100%;
-}
-
 
 .feature-box-rows {
     display: flex;
@@ -320,38 +181,6 @@ header a:hover {
 
 
 
-.box-row {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    justify-content: space-between;
-    margin: 100px 30px 20px 30px;
-}
-
-
-footer {
-    display: flex;
-    height: 100px;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    background: #1c2a3c;
-    z-index: 2;
-    border: none;
-}
-.author {
-    background: #000000;
-    border: none;
-    padding: 10px;
-    height: 50px;
-    width: 100%;
-}
-.author a {
-    color: white;
-    position: relative;
-    right: 0;
-}
 .search-bar {
     width: 100%;
     background: #000000;
@@ -364,56 +193,6 @@ footer {
     right: 0px;
     gap: 20px;
     z-index: 1;
-}
-
-
-
-.sidebar-hr ul a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(255,255,255,.1);
-    border-bottom: 1px solid black;
-
-}
-
-
-
-
-.sidebar-hr {
-    position: absolute;
-    left: 10px;
-}
-
-.sidebar-hr ul {
-    display: flex;
-    gap: 40px;
-    list-style-type: none; /* 移除項目符號 */
-    padding: 0; /* 移除可能的默認填充 */
-    margin: 0; /* 移除可能的默認邊距 */
-}
-
-.sidebar-hr ul li {
-    margin: 0; /* 確保項目間沒有額外邊距 */
-    padding: 0; /* 確保項目內沒有額外填充 */
-}
-
-.sidebar-hr ul li a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-    border-bottom: 1px solid black;
-    transition: color 0.4s ease, padding-left 0.4s ease; /* 添加過渡效果 */
-    text-decoration: none; /* 移除連結的下劃線 */
-    color: #fff; /* 確保文字顏色為白色，以與背景對比 */
-}
-
-.sidebar-hr ul li a:hover {
-    color: #4169E1; /* 懸停時變為皇家藍 */
-    padding-left: 10px; /* 懸停時添加左側填充 */
 }
 
 
@@ -447,53 +226,6 @@ footer {
     color: black;
 }
 
-.clear-bar {
-    color: #fff;
-    margin-right: 10px;
-    text-decoration: none;
-    border: white;
-    border-radius: 5px;
-    transition: .3s;
-}
-
-.clear-bar:hover{
-    scale: 1.2;
-}
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 10px 0;
-    background-color: #f8f9fa; /* 可根據需要調整背景色 */
-}
-
-.pagination .step-links {
-    display: flex;
-    gap: 10px; /* 調整分頁鏈接之間的間距 */
-}
-
-.pagination .step-links a {
-    text-decoration: none;
-    color: #007bff; /* 超鏈接顏色 */
-    padding: 5px 10px;
-    border: 1px solid #007bff;
-    border-radius: 3px;
-}
-
-.pagination .step-links a:hover {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.pagination .step-links strong {
-    padding: 5px 10px;
-    border: 1px solid #007bff;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #fff;
-}
 .page-banner {
     display: flex;
     justify-content: center;

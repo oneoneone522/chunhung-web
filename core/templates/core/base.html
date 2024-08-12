@@ -6,6 +6,7 @@
     <title>丞竑貿易｜{% block title %}{% endblock %}</title>
     {% load static %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/static/css/style.css" rel="stylesheet">
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,27 +45,28 @@
             </div>
         </nav>
     </header>
-{% block content %}
-{% endblock %}
-    <footer>
-        <div class="container-fluid bg-dark text-white">
-            <div class="row">
-                <div class="column my-5">
-                    <p><strong>地址：</strong>高雄市大寮區光明路一段168-1號</p>
-                    <p><strong>電話：</strong>07-7874443</p>
-                    <p><strong>傳真：</strong>07-7874501</p>
-                    <a href="mailto:chunhung7874443@gmail.com" style="text-decoration: none; color: white;"><strong>電子郵件：</strong>chunhung7874443@gmail.com</a>
-                </div>
-                <div class="column my-2">
-                    <p>&copy;丞竑貿易有限公司</p>
-                </div>
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    <div class="container-fluid bg-dark text-white">
+        <div class="row">
+            <div class="col my-5">
+                <p><strong>地址：</strong>高雄市大寮區光明路一段168-1號</p>
+                <p><strong>電話：</strong>07-7874443</p>
+                <p><strong>傳真：</strong>07-7874501</p>
+                <a href="mailto:chunhung7874443@gmail.com" style="text-decoration: none; color: white;"><strong>電子郵件：</strong>chunhung7874443@gmail.com</a>
+                <p>&copy;丞竑貿易有限公司</p>
             </div>
-            <hr>
-            <div class="row">
-                <a  style="color: white; text-decoration: none; position: relative; left: 920px;" href="mailto:jj0985788718@gmail.com">design and created by: Joy Lo</a>
-            </div>
-        </div>   
-    </footer>
+        </div>
+        <div class="row">
+            <p text-white>
+                Designed and created by JL studio
+            </p>
+        </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

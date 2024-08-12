@@ -3,55 +3,66 @@
 {{ item.name }}
 {% endblock %}
 {% block content %}
-<div class="detail-container">
-    <div class="detail-img">
-        {% if item.image %}
-        <img src="{{ item.image.url }}" alt="">
-        {% else %}
-        <p>{{item.name}} pic shoud be uploaded</p>
-        {% endif %}
-    </div>
-    <div class="detail-desc">
-        <h1>{{ item.name }}</h1><br>
-        <p><strong>產品型號：</strong><br>{{ item.model_type }}</p><br>
-        {% if item.specification %}
-        <p><strong>產品規格：</strong><br>{{ item.specification }}</p><br>
-        {% endif %}
-        {% if item.description %}
-        <p>
-            <strong>產品描述：</strong><br>
-            {{ item.description }}
-        </p>
-        {% endif %}
-        <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
-            {% csrf_token %}
-            {% if item.specification %}
-                <label for="specification">規格</label>
-                {{form.specification}}
-            {% endif %}
-            <label for="quatity">數量</label>
-            {{form.quantity}}
-            <label for="remark">其他備註</label>
-            {{form.remark}}
-            <button type="submit" class="btn">加入詢價單</button>
-        </form>
-        <p>也可以透過下方電子郵件連結，直接向我們詢價</p>
-        <a href="mailto:chunhung7874443@gmail.com?&subject={{item.name}}詢價單&body=公司名稱：_您的公司名稱_%0A聯絡人：_您的稱呼_%0A品項：_{{item.name}}_%0A數量：_需求數量_" class="contact-btn">
-            產品詢價
-        </a> 
-    </div>
-</div>
-<div class="related_items_page">
-    <h2 style="text-align:center">相關商品</h2>
-    <div class="box-row">
-        {% for item in related_items %}
-        <div class="box-column">
-            <a href="{% url 'item:detail' item.id %}">
+<div class="container mt-5 mb-5">
+    <div class="row mt-5">
+        <div class="col-5">
+            <div class="img border">
+                {% if item.image %}
                 <img src="{{ item.image.url }}" alt="">
-                <h3>{{ item.name }}</h3>
-            </a>
+                {% else %}
+                <p>{{item.name}} pic shoud be uploaded</p>
+                {% endif %}
+            </div>
         </div>
-        {% endfor %}
-    </div>    
+        <div class="col-7">
+            <div class="detail-desc">
+                <h1>{{ item.name }}</h1><br>
+                <p><strong>產品型號：</strong><br>{{ item.model_type }}</p><br>
+                {% if item.specification %}
+                <p><strong>產品規格：</strong><br>{{ item.specification }}</p><br>
+                {% endif %}
+                {% if item.description %}
+                <p>
+                    <strong>產品描述：</strong><br>
+                    {{ item.description }}
+                </p>
+                {% endif %}
+                <form method="POST" action="{% url 'cart:add_to_cart' item.id %}">
+                    {% csrf_token %}
+                    {% if item.specification %}
+                        <label for="specification">規格</label><br>
+                        {{form.specification}}<br>
+                    {% endif %}
+                    <label for="quatity">數量</label><br>
+                    {{form.quantity}}<br>
+                    <label for="remark">其他備註</label><br>
+                    {{form.remark}}<br>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">加入詢價單</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">商品已成功加入詢價單</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <p>品項：{{item.name}}"</p><br>
+                              <p>數量：{{form.quantity}}</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">查看其他商品</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+                <!-- <p>也可以透過下方電子郵件連結，直接向我們詢價</p>
+                <a href="mailto:chunhung7874443@gmail.com?&subject={{item.name}}詢價單&body=公司名稱：_您的公司名稱_%0A聯絡人：_您的稱呼_%0A品項：_{{item.name}}_%0A數量：_需求數量_" class="contact-btn">
+                    產品詢價
+                </a>  -->
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

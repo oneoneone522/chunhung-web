@@ -2,17 +2,15 @@
 {% block title %}瀏覽商品{{ item.name }}
 {% endblock %}
 {% block content %}
-    <div class="page-banner">
-        <div class="banner-container">
-            <div style="height: 200px;"></div>
-            <h2>丞竑貿易公司提供多樣化的產品，滿足您所有的生產與製造需求</h2>
-        </div>
+    <div style="height: 200px;">
+        <h2 style="text-align: center;">丞竑貿易公司提供多樣化的產品，滿足您所有的生產與製造需求</h2>
     </div>
+            
     <div class="row my-5">
         <h1 style="text-align: center;">商品類別</h1>
     </div>
     <div class="container">
-        <div class="row align-items-start gx-5">
+        <div class="row gx-5">
             {% for item in items %}
                 <div class="col-3">
                     <div class="card h-100 d-flex flex-column" style="width: 18rem; border: bg-light;">
