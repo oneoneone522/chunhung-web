@@ -3,87 +3,97 @@
 首頁
 {% endblock %}
 {% block content %}
-<div class="header-slider">
-    <!-- <a href="#" class="control-prev">&#129144</a>
-    <a href="#" class="control-next">&#129146</a> -->
-    <ul>
-        <img src="/static/assets/S__29605906.jpg" class="header-image">
-    </ul>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/static/assets/S__29605906.jpg" class="d-block w-100" alt="..." style="height: 100vh;">
+      </div>
+      <div class="carousel-item">
+        <img src="/static/assets/S__29605890_0.jpg" class="d-block w-100" alt="..." style="height: 100vh;">
+      </div>
+      <div class="carousel-item">
+        <img src="/static/assets/S__29605899_0.jpg" class="d-block w-100" alt="..." style="height: 100vh;">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
 </div>
-<section class="about-page">
-    <header>
-        <h1>關於我們</h1>
+<div class="container">
+    <div class="row" style="position: sticky;">
+        <h1 style="text-align: center;">關於我們</h1>
+    </div>
+    <div class="row">
         <p style="text-align: center;">丞竑貿易有限公司是金口凡而的南部經銷商，至今已營運十幾年。<br>我們提供多樣化的產品選擇，致力於協助您在生產與營運上的品質與效率提升。</p>
-    </header>
-    
-    
-    <div class="about-content">
-        <div class="feature-box-rows">
-            <div class="feature-box">
-                <h2>堅持品質</h2>
-                <p>堅持提供品質保證的產品，<br>讓我們的產品協助您的生產與建造。</p>
-            </div>
-            <div class="feature-box">
-                <h2>多樣化的產品</h2>
-                <p>我們提供多種類型的產品，<br>從配管、閥類到零組件皆有提供。</p>
-            </div>
-            <div class="feature-box">
-                <h2>快速便利的服務</h2>
-                <p>我們提供快速且便利的服務，<br>您的詢價單將會得到最快速的處理。</p>
-            </div>
-        </div>
     </div>
-
-        <!-- <div class="about-pic">
-            <img src="/static/assets/S__29605892_0.jpg">
-        </div> -->
-</section>
-
-<!-- <section class="browse-page">
-    <header>
-        <h1>瀏覽商品</h1>
-        <p>在<a href="{% url 'item:items' %}"><strong>瀏覽商品</strong></a>看更多</p>
-    </header>
-    <div class="box-row">
-        {% for item in items %}
-        <div class="box-column">
-            <a href="{% url 'item:detail' item.id %}">
-                {% if item.image %}
-                    <img src="{{ item.image.url}}" alt="">
-                {% else %}
-                    <p>{{item.name}} pic shoud be uploaded</p>
-                {% endif %}
-                <h3>{{ item.name }}</h3>
-                {% if item.model_type %}
-                    <p>型號：{{item.model_type}}</p>
-                {% else %}
-                    <p>無型號提供</p>
-                {% endif %}
-            </a>
-        </div>
-        {% endfor %}
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col" style="height: 105vh;">
+        <h2>堅持品質</h2>
+        <p>堅持提供品質保證的產品，<br>讓我們的產品協助您的生產與建造。</p>
+      </div>
+      <div class="col" style="height: 105vh;">
+        <h2>多樣化的產品</h2>
+        <p>我們提供多種類型的產品，<br>從配管、閥類到零組件皆有提供。</p>
+      </div>
+      <div class="col" style="height: 105vh;">
+        <h2>快速便利的服務</h2>
+        <p>我們提供快速且便利的服務，<br>您的詢價單將會得到最快速的處理。</p>
+      </div>
     </div>
-</section> -->
-    
+  </div>
 <section class="category-page">
     <header>
-        <h1>商品類別</h1>
+        <h1 style="text-align: center;">商品類別</h1>
     </header>
-    <div class="box-row">
-        {% for category in categories %}
-        <div class="box-column">
-            <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}">
-                {% if category.image %}
-                <img src="{{category.image.url}}">
-                {% else %}
-                <img src="/static/assets/item_image_2.jpg" alt="">
-                {% endif %}
-                <h3>{{ category.name }}</h3>
-            </a>
+    <div class="container">
+        <div class="row align-items-start gx-5">
+            {% for category in categories %}
+                <div class="col-3">
+                    <div class="card" style="width: 18rem; border: bg-light;">
+                        {% if category.image %}
+                            <img src="{{category.image.url}}" class="card-img-top">
+                        {% else %}
+                            <img src="/static/assets/item_image_2.jpg" class="card-img-top">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ category.name }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}" class="btn btn-primary">瀏覽此分類</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-        <p>*"商品分類"照片僅為示意圖，本廠實際販售商品以網站上的產品項目為主</p>
     </div>
-    {% endblock %}
+    <!-- {% for category in categories %}
+        <div class="card" style="width: 18rem;">
+            {% if category.image %}
+                <img src="{{category.image.url}}" class="card-img-top">
+            {% else %}
+                <img src="/static/assets/item_image_2.jpg" class="card-img-top">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ category.name }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% endfor %} -->
+    <p>*"商品分類"照片僅為示意圖，本廠實際販售商品以網站上的產品項目為主</p>
 </section>
+        
+    {% endblock %}
+
 
