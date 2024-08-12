@@ -30,34 +30,34 @@
     </button>
 </div>
 <div class="container">
-    <div class="row" style="position: sticky;">
+    <div class="row my-2">
         <h1 style="text-align: center;">關於我們</h1>
     </div>
-    <div class="row">
+    <div class="row my-2">
         <p style="text-align: center;">丞竑貿易有限公司是金口凡而的南部經銷商，至今已營運十幾年。<br>我們提供多樣化的產品選擇，致力於協助您在生產與營運上的品質與效率提升。</p>
     </div>
 </div>
 <div class="container">
     <div class="row">
-      <div class="col" style="height: 105vh;">
+      <div class="col">
         <h2>堅持品質</h2>
         <p>堅持提供品質保證的產品，<br>讓我們的產品協助您的生產與建造。</p>
       </div>
-      <div class="col" style="height: 105vh;">
+      <div class="col">
         <h2>多樣化的產品</h2>
         <p>我們提供多種類型的產品，<br>從配管、閥類到零組件皆有提供。</p>
       </div>
-      <div class="col" style="height: 105vh;">
+      <div class="col">
         <h2>快速便利的服務</h2>
         <p>我們提供快速且便利的服務，<br>您的詢價單將會得到最快速的處理。</p>
       </div>
     </div>
   </div>
 <section class="category-page">
-    <header>
+    <div class="row my-5">
         <h1 style="text-align: center;">商品類別</h1>
-    </header>
-    <div class="container">
+    </div>
+    <div class="container-fluid">
         <div class="row align-items-start gx-5">
             {% for category in categories %}
                 <div class="col-3">
@@ -68,7 +68,7 @@
                             <img src="/static/assets/item_image_2.jpg" class="card-img-top">
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ category.name }}</h5>
+                            <h5 class="card-title"><strong>{{ category.name }}</strong></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}" class="btn btn-primary">瀏覽此分類</a>
                         </div>
@@ -77,21 +77,10 @@
             {% endfor %}
         </div>
     </div>
-    <!-- {% for category in categories %}
-        <div class="card" style="width: 18rem;">
-            {% if category.image %}
-                <img src="{{category.image.url}}" class="card-img-top">
-            {% else %}
-                <img src="/static/assets/item_image_2.jpg" class="card-img-top">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{ category.name }}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="{% url 'item:items' %}?query={{ query }}&category={{category.id}}" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    {% endfor %} -->
-    <p>*"商品分類"照片僅為示意圖，本廠實際販售商品以網站上的產品項目為主</p>
+    <div class="row mx-2 my-2">
+        <p>"商品分類"照片僅為示意圖，本廠實際販售商品以網站上的產品項目為主</p>
+    </div>
+    
 </section>
         
     {% endblock %}
